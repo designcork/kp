@@ -239,7 +239,7 @@ img {max-width: 100%;}
 }
 
 .video-play::before {
-    content: url(/images/icon-play-button.svg);
+    content: url(./images/icon-play-button.svg);
     margin: auto;
     display:block;
     height:40px;
@@ -561,8 +561,8 @@ nav ul li a:hover {
     overflow: visible;
 }
 
-.icon-heart::after { -webkit-mask: url(/images/icon-heart.svg) no-repeat 50% 50%;
-    mask: url(/images/icon-heart.svg) no-repeat 50% 50%;
+.icon-heart::after { -webkit-mask: url(./images/icon-heart.svg) no-repeat 50% 50%;
+    mask: url(./images/icon-heart.svg) no-repeat 50% 50%;
 }
 
 .icon-black::after {
