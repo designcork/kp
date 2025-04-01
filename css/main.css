@@ -41,7 +41,8 @@
   }
 
   ::selection {
-    background: var(--secondary-colour);
+    background: var(--white-colour);
+    color: var(--black-colour);
   }
 
 html {
@@ -89,8 +90,6 @@ header {
     display: flex;
     justify-content: space-between;
     justify-items: space-between;
-    margin: 0 auto 0 auto;
-    max-width: 2000px;
 }
 
 .sticky {
@@ -99,6 +98,7 @@ header {
     right: 0;
     width: 100%;
     z-index: 50;
+    height: 60px;
     background-color: var(--black-colour);
 }
 
@@ -210,7 +210,9 @@ img {max-width: 100%;}
 .video-subtitle {
     flex: 1;
     font-size: .7em;
-  }
+}
+
+.right {text-align: right;}
 
 .video-title {
     margin: 0 10px;
@@ -265,6 +267,11 @@ img {max-width: 100%;}
     justify-content : flex-end;
     cursor          : pointer;
   }
+
+.video-modal-close::before {
+    content: url(../images/icon-menu-close.svg);
+    width: 30px;
+}
 
 .video-modal-container {
     height  : calc(100vh);
@@ -326,16 +333,17 @@ img {max-width: 100%;}
 
 .portfolio-button-list .filter-btn {
     border: none;
-    outline: none;
     padding: 8px 8px;
     background-color:inherit;
     cursor: pointer;
     border-radius: 8px;
-    margin: 0;
+    margin: 4px;
     font-family: inherit;
     font-size: 20px;
     font-weight: 200;
-    text-decoration: underline;
+    outline: var(--white-colour);
+    outline-width: 1px;
+    outline-style: solid;
   }
   
   /* Add a grey background color on mouse-over */
@@ -402,26 +410,30 @@ img {max-width: 100%;}
   #menuToggle input
   {
     display: flex;
-    width: 4em;
-    height: 4em;
     position: absolute;
-    cursor: pointer;
     opacity: 0;
     z-index: 55;
-    margin-right: 10px;
+    top: 10px;
   }
-  #menuToggle span   {
+  #menuToggle span {
     transform: rotate(45deg);
     display: block;
-    margin-top: -10px;
-    font-size: 3em;
     position: relative;
+    margin-top: 20px;
     color: var(--white-colour);
     outline: var(--white-colour);
     z-index: 50;
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
                 opacity 0.55s ease;
   }
+
+  #menuToggle span::before {
+    content: url(../images/icon-menu-close.svg);
+    margin: auto;
+    display:block;
+    height:20px;
+    width:20px;
+}
   
   #menuToggle input:checked ~ span
   {
@@ -512,9 +524,8 @@ nav ul li a:hover {
 .logo-box {
     position: absolute;
     left: 25px;
-    bottom: 20px;
-    top: 20px;
-    width: 1000px;
+    top: 18px;
+    width: 240px;
     z-index: 7;
     color: var(--white-colour);
     padding: 0;
@@ -601,6 +612,8 @@ ul.bullet-point {list-style-type: circle;list-style-position: inside;}
         top: 0;
     }
     h2 {font-size: 1.8em;}
+    .video-title h2 {font-size: 1.4em;}
+    .video-subtitle {font-size: 1em;}
 }
 
 @media only screen and (min-width: 900px) {
