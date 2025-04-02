@@ -23,7 +23,7 @@
     --highlight-colour: var(--red);
     --highlight-colour-2: var(--green);
     --white-colour: #FBFAF5;
-    --black-colour: #181A18;
+    --black-colour: #0B1215;
     --grey-colour: #bbb9b9;
     --primary-font: 'Plus Jakarta Sans', sans-serif;
     --primary-font-italic: 'Plus Jakarta Sans Italic', italic;
@@ -70,7 +70,7 @@ a {
 }
 
 p {font-size: 1em;}
-h1 {font-size: 3em;}
+h1 {font-size: clamp(1rem, 2em, 10vw); text-align: center;margin-top: 4em;}
 h2 {font-size: 1.8em;}
 
 .hide-mobile {
@@ -200,31 +200,25 @@ img {max-width: 100%;}
     font-weight: 600;
 }
 
-.video-bottom {
-    display: flex;
-    padding: 20px 0;
-    align-items: flex-start;
-    justify-content: space-between;
-}
-
 .video-subtitle {
-    flex: 1;
+    width: calc(100%/6);
     font-size: .7em;
 }
 
 .right {text-align: right;}
 
 .video-title {
-    margin: 0 10px;
+    margin: 0;
     text-align: center;
-    flex: auto;
+    width: calc(100%/3*2);
 }
 
 .video-title h2 {
     display        : inline-block;
     padding-top: 0;
     margin: 0;
-    font-size: 1.2em;
+    font-size: 1em;
+    padding: 0 10px;
 }
 
 .video-info-button {
@@ -328,22 +322,20 @@ img {max-width: 100%;}
     cursor: pointer;
   }
 
-
-
-
-.portfolio-button-list .filter-btn {
+.filter-btn {
     border: none;
     padding: 8px 8px;
     background-color:inherit;
     cursor: pointer;
     border-radius: 8px;
-    margin: 4px;
+    margin: 2px;
     font-family: inherit;
     font-size: 20px;
     font-weight: 200;
     outline: var(--white-colour);
     outline-width: 1px;
     outline-style: solid;
+    font-size: .8em;
   }
   
   /* Add a grey background color on mouse-over */
@@ -366,7 +358,7 @@ img {max-width: 100%;}
   background-color: inherit;
   width: 1000px;
   max-width: 90%;
-  margin: 0 auto;
+  margin: 6em auto;
   padding: 0;
   margin-bottom: 50px;
   }
@@ -414,9 +406,11 @@ img {max-width: 100%;}
     opacity: 0;
     z-index: 55;
     top: 10px;
+    right: 0;
+    width: 30px;
+    height: 30px;
   }
   #menuToggle span {
-    transform: rotate(45deg);
     display: block;
     position: relative;
     margin-top: 20px;
@@ -433,9 +427,12 @@ img {max-width: 100%;}
     display:block;
     height:20px;
     width:20px;
+    transform: rotate(45deg);
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                opacity 0.55s ease;
 }
   
-  #menuToggle input:checked ~ span
+  #menuToggle input:checked ~ span::before
   {
     transform: rotate(90deg);
   }  
@@ -593,6 +590,56 @@ nav ul li a:hover {
 
 ul.bullet-point {list-style-type: circle;list-style-position: inside;}
 
+.hero-image {
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-position: center;
+    text-align: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+}
+
+.home-text {
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+    text-decoration: none;
+}
+
+.flexIt {
+    height: 100vh;
+    display: flex;
+  align-items: center;
+}
+
+
+.home-top-video {
+    left: 0%;
+    top: 0%;
+    padding-top: 4em;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    text-align: center;
+    display: block;
+    margin-bottom: 0;
+    align-items: center;
+  }
+
+  #video-loop {
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+  object-fit: cover;
+  object-position: center;
+}
+
 
 
 @media only screen and (min-width: 650px) { 
@@ -608,12 +655,18 @@ ul.bullet-point {list-style-type: circle;list-style-position: inside;}
         font-size: 2rem;
         line-height: 3rem;
     }
-    .video-modal-iframe {
-        top: 0;
-    }
-    h2 {font-size: 1.8em;}
+    .video-modal-iframe {top: 0;}
+
+    h1 {font-size: clamp(1rem, 3em, 10vw);}
+    h2 {font-size: 1.8em; text-align: center;}
     .video-title h2 {font-size: 1.4em;}
     .video-subtitle {font-size: 1em;}
+    .hero-image {
+        display: block;
+        background-size: cover;
+        background-image: none;
+        background-repeat: no-repeat;
+    }
 }
 
 @media only screen and (min-width: 900px) {
@@ -697,6 +750,24 @@ ul.bullet-point {list-style-type: circle;list-style-position: inside;}
         width: 90%;
         max-width: 1400px;
         margin: auto;
-        margin-top: 60px;
+        margin-top: 80px;
+    }
+
+    .filter-btn {
+        font-size: 1em;
+        margin: 4px;
+        text-align: center;
+        width: 100px;
+      }
+    .filter-btn-small {font-size: .9em;}
+
+      .portfolio-button-list {
+        position: fixed;
+        left: 25px;
+        z-index: 10;
+        width: 100px;
+        object-position: left;
+        text-align: left;
+
     }
   }
