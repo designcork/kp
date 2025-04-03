@@ -72,6 +72,7 @@ a {
 p {font-size: 1em;}
 h1 {font-size: clamp(1rem, 2em, 10vw); text-align: center;margin-top: 4em;}
 h2 {font-size: 1.8em;}
+h3 {font-size: 1.2em; margin-top: 2em; margin-bottom: 0; padding: 0; line-height: 1em;}
 
 .hide-mobile {
     transition: 400ms ease-in-out;
@@ -104,7 +105,6 @@ header {
 
 .container-short {
     max-width: 800px;
-    padding: 0 1.2em;
     margin: 0 auto 0 auto
 }
 
@@ -658,7 +658,8 @@ ul.bullet-point {list-style-type: circle;list-style-position: inside;}
     .video-modal-iframe {top: 0;}
 
     h1 {font-size: clamp(1rem, 3em, 10vw);}
-    h2 {font-size: 1.8em; text-align: center;}
+    h2 {font-size: 1.8em;}
+    h3 {font-size: 1.4em;}
     .video-title h2 {font-size: 1.4em;}
     .video-subtitle {font-size: 1em;}
     .hero-image {
