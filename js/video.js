@@ -33,7 +33,7 @@ $(document).ready(function () {
     // YouTube Variation
 	$('.video-overlay-youtube').click(function () {
 		var youtube = $(this).closest('.video-module').attr('data-youtube');
-		var src = 'https://www.youtube.com/embed/' + youtube;
+		var src = 'https://www.youtube-nocookie.com/embed/' + youtube + '?rel=0&autoplay=1';
 		var iframe = $(this).closest('.video-module').find('.video-modal-iframe');
 		iframe.attr('src', src);
 		if ($(window).width() < 768) {
